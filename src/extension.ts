@@ -5,7 +5,7 @@ import * as vscode from 'vscode';
 // This method is called when your extension is activated
 // Your extension is activated the very first time the command is executed
 export function activate(context: vscode.ExtensionContext) {
-	let cmd = vscode.commands.registerCommand('CodeContext.copyCodeWithMetadata', copyCodeWithMetadata);
+	let cmd = vscode.commands.registerCommand('Code-Context.copyCodeWithMetadata', copyCodeWithMetadata);
 	context.subscriptions.push(cmd);
 }
 
