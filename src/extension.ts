@@ -5,12 +5,12 @@ import * as vscode from 'vscode';
 // This method is called when your extension is activated
 // Your extension is activated the very first time the command is executed
 export function activate(context: vscode.ExtensionContext) {
-	let cmd = vscode.commands.registerCommand('copy-code-with-info.copyCodeWithinfo', copyCodeWithinfo);
+	let cmd = vscode.commands.registerCommand('CodeContext.copyCodeWithMetadata', copyCodeWithMetadata);
 	context.subscriptions.push(cmd);
 }
 
-function copyCodeWithinfo() {
-	vscode.window.showInformationMessage('copy code with info!');
+function copyCodeWithMetadata() {
+	vscode.window.showInformationMessage('copy code with extra info!');
 	const editor = vscode.window.activeTextEditor;
 	if (editor) {
 		const filePath = editor.document.fileName;
@@ -25,6 +25,8 @@ function copyCodeWithinfo() {
 		const lineNum = editor.selection.start.line + 1;
 
 		const clipboardContent = JSON.stringify({
+			type: 'code',
+			language: editor.document.languageId,
 			folderPath,
 			filePath,
 			fileFormat,
@@ -32,7 +34,7 @@ function copyCodeWithinfo() {
 			text: selectedText
 		});
 
-		vscode.env.clipboard.writeText('ymjr:code-link' + clipboardContent)
+		vscode.env.clipboard.writeText('ymjr:' + clipboardContent)
 		.then(() => {
 			vscode.window.showInformationMessage('File info copied to clipboard.');
 		})

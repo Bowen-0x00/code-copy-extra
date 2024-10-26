@@ -1,8 +1,10 @@
 {
-  "name": "copy-code-with-info",
-  "displayName": "copy code with info",
+  "name": "CodeContext",
+  "displayName": "CodeContext",
   "description": "This extension is used to copy code along with necessary information.",
-  "version": "0.0.1",
+  "version": "0.0.2",
+  "publisher": "ymjr",
+  "repository": "https://github.com/Bowen-0x00/CodeContext",
   "engines": {
     "vscode": "^1.89.0"
   },
@@ -14,8 +16,8 @@
   "contributes": {
     "commands": [
       {
-        "command": "copy-code-with-info.copyCodeWithinfo",
-        "title": "copy code with info"
+        "command": "CodeContext.copyCodeWithMetadata",
+        "title": "Copy Code with Metadata"
       }
     ]
   },
